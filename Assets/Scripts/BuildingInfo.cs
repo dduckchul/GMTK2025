@@ -1,24 +1,21 @@
+using System;
+using TMPro;
 using UnityEngine;
 
 public class BuildingInfo : MonoBehaviour
 {
-    private char _buildingName;
-    private bool _isOpen;
+    public BuildingManager buildingManager;
+    public char buildingName;
+    public TMP_Text text;
+    public bool isOpen;
 
-    public char BuildingName
+    public void SetBuildingManager(BuildingManager bm)
     {
-        get => _buildingName;
-        set => _buildingName = value;
+        this.buildingManager = bm;
     }
-
-    public bool IsOpen
+    
+    public void Start()
     {
-        get => _isOpen;
-        set => _isOpen = value;
-    }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        
+        text.text = buildingName.ToString();        
     }
 }
